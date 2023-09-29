@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
     $response = Http::get('https://rickandmortyapi.com/api/character/[1,2,3,4,5]');
-    $data = $response->Json();
     
+
+    $data = $response->Json();
+    dd($data);
+        
 });
 
 Route::resource('rickAndMorty', App\Http\Controllers\residentesController::class);
