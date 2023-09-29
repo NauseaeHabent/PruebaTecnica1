@@ -34,7 +34,12 @@ class residentesController extends Controller
 
         $this->characterService->saveCharacter($id, $name, $status, $species);
 
-        return redirect()->back()->with('success', 'Character saved successfully');
+        return redirect()->back();
+    }
+
+    public function show() {
+        $savedCharacters = Characters::all(); 
+        return view('personajesVista', compact('savedCharacters'));
     }
 }
 

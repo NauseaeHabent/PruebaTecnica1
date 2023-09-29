@@ -16,7 +16,6 @@ Residentes
     padding-top: 60px;
   }
 
-  /* Modal content */
   .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
@@ -26,7 +25,6 @@ Residentes
     max-width: 600px;
   }
 
-  /* Close button */
   .close {
     color: #aaa;
     float: right;
@@ -145,4 +143,7 @@ img {
         @endforeach
             </div>
          </div>
+         <a href="{{ route('rickAndMorty.showAll') }}" class="btn btn-primary">Mostrar Personajes Guardados</a>
+
        </div>
+
