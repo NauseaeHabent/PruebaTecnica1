@@ -95,9 +95,17 @@ img {
                       <div id="modal_{{ $residente['id'] }}" class="modal">
 
                         <div class="modal-content">
-                          <span class="close" onclick="closeModal()">&times;</span>
-                          <p>Id del Personaje: {{ $residente['name'] }}</p>
-                        </div>
+                          <span class="close" onclick="closeModal({{ $residente['id'] }})">&times;</span>
+                          <p>Name: {{ $residente['name'] }}</p>
+                          <p>Status: {{ $residente['status'] }}</p>
+                          <p>Specie: {{ $residente['species'] }}</p>
+                          <p>Origin: {{ $residente['origin']['name'] }}</p>
+                          <p>Gender: {{ $residente['gender'] }}</p>
+                          <p>Created: {{ $residente['created'] }}</p>
+                          <p>Episodios:</p>
+                          <p>{{ $residente['episode'][0] }} </p>
+                          <p>{{ $residente['episode'][1] }} </p>
+                          <p>{{ $residente['episode'][2] }} </p>                        </div>
                       </div>
 
                       <p class="card-text">Name: {{ $residente['name'] }}</p>
@@ -111,7 +119,14 @@ img {
 
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Guardar Personaje</button>
+                          <form action="{{ route('rickAndMorty.store', $residente['id']) }}"  method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $residente['id'] }}">
+                            <input type="hidden" name="name" value="{{ $residente['name'] }}">
+                            <input type="hidden" name="status" value="{{ $residente['status'] }}">
+                            <input type="hidden" name="species" value="{{ $residente['species'] }}">
+                          <button type="submit" class="btn btn-sm btn-outline-secondary">Guardar Personaje</button>
+                        </form>
                         </div>
                       </div>
                     </div>
