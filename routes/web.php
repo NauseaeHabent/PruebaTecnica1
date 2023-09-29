@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $response = Http::get('https://rickandmortyapi.com/api/character/[1,2,3,4,5]');
+    $data = $response->Json();
+    
 });
+
+Route::resource('rickAndMorty', App\Http\Controllers\residentesController::class);
