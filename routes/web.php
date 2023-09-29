@@ -25,4 +25,4 @@ Route::get('/', function () {
 });
 
 Route::resource('rickAndMorty', App\Http\Controllers\residentesController::class);
-Route::get('/rickAndMorty.showAll', 'residentesController@showAll')->name('rickAndMorty.showAll');
+Route::get('/rickAndMorty/showAll', 'residentesController@showAll')->name('rickAndMorty.showAll');
