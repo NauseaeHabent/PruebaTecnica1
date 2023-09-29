@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Contracts\CharacterServiceInterface;
 use App\Models\Characters;
 class residentesController extends Controller
 {
 
-    public function __construct()
-    {
+    
 
+    private $characterService;
 
+    public function __construct(CharacterServiceInterface $characterService) {
+        $this->characterService = $characterService;
     }
 
 
@@ -23,23 +26,15 @@ class residentesController extends Controller
         return view('residentes', compact('data'));
         
     }
-
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $id = $request->input('id');
         $name = $request->input('name');
         $status = $request->input('status');
         $species = $request->input('species');
 
+        $this->characterService->saveCharacter($id, $name, $status, $species);
 
-        $characters = new Characters;
-        $characters->id = $id;
-        $characters->name = $name;
-        $characters->status = $status;
-        $characters->species = $species;
-    
-        $characters->save();
-    
         return redirect()->back()->with('success', 'Character saved successfully');
     }
 }
+
