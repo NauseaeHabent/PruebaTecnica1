@@ -1,60 +1,9 @@
-Residentes
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<style>
+@extends('layouts.app')
+@section('content')
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8);
-    padding-top: 60px;
-  }
-
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-  }
-
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-img {
-  width: 40%;
-  height: auto;
-  cursor: pointer;
-  float: left;    
- margin: 0px 0 0 10px;
-
-}
-.card-text{
-    font-size:10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-
-  </head>
+<div class="text-center">
+    <h3>Residentes</h3>
+</div>
 <table>
   
   <div class="container">
@@ -143,7 +92,8 @@ img {
         @endforeach
             </div>
          </div>
+         <div class="text-center">
          <a href="{{ route('rickAndMorty.showAll') }}" class="btn btn-primary">Mostrar Personajes Guardados</a>
-
+         </div>
        </div>
 
